@@ -25,6 +25,15 @@ export interface GraphQLParams {
   variables?: string | { [name: string]: any };
 }
 
+export type HybridSubscriptionTransportConfig = {
+  /* Enable SSE transport as an option */
+  sse?: string;
+  /* Enable Legacy graphql-ws protocol transport as an option. */
+  legacyWS?: string;
+  /* Enable graphql-transport-ws protocol transport as an option */
+  transportWS?: string;
+};
+
 export interface RenderGraphiQLOptions {
   /**
    * An optional GraphQL string to use when no query is provided and no stored
@@ -60,6 +69,7 @@ export interface RenderGraphiQLOptions {
    * Use legacy web socket protocol `graphql-ws` instead of the more current standard `graphql-transport-ws`
    */
   useWebSocketLegacyProtocol?: boolean;
+  hybridSubscriptionTransportConfig?: HybridSubscriptionTransportConfig;
 }
 
 export interface ProcessRequestOptions<TContext, TRootValue> {
